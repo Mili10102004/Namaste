@@ -2,6 +2,8 @@ package com.example.namaste;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -12,6 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class ShippingPageActivity extends AppCompatActivity {
 
@@ -42,6 +47,15 @@ public class ShippingPageActivity extends AppCompatActivity {
         discountPrice = findViewById(R.id.discountPrice);
         estimatedDeliveryTime = findViewById(R.id.estimatedDeliveryTime);
 
+        // Populate the Spinner with country names and set the placeholder
+        List<String> countries = Arrays.asList("Select Country", "India", "USA", "Canada", "Germany", "France");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, countries);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        countrySpinner.setAdapter(adapter);
+
+        // Set placeholder text
+        countrySpinner.setSelection(0); // Set the default value to "Select Country"
+
         // Button Click Listeners
         getEstimateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +76,24 @@ public class ShippingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 decreaseWeight();
+            }
+        });
+
+        // Spinner item selection listener
+        countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the country selection
+                String selectedCountry = parentView.getItemAtPosition(position).toString();
+                if (!selectedCountry.equals("Select Country")) {
+                    // Optionally, show a Toast or perform some other action
+                    Toast.makeText(ShippingPageActivity.this, "Selected Country: " + selectedCountry, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing
             }
         });
     }
@@ -89,6 +121,12 @@ public class ShippingPageActivity extends AppCompatActivity {
     private void calculateShippingEstimate() {
         // Get selected country
         String selectedCountry = countrySpinner.getSelectedItem().toString();
+
+        // Check if the user has selected a country other than the placeholder
+        if ("Select Country".equals(selectedCountry)) {
+            Toast.makeText(this, "Please select a country", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Get package type (Non-Document, Document, or Temperature Controlled)
         int selectedPackageTypeId = packageTypeGroup.getCheckedRadioButtonId();

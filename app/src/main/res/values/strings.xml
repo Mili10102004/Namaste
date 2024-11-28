@@ -2,5 +2,11 @@
     <string name="app_name">NamasteNow1</string>
     <string name="temperature">Temperature</string>
     <string name="notification_icon_desc">Notification Button</string>
-
+    <string-array name="country_array">
+        <item>India</item>
+        <item>USA</item>
+        <item>Canada</item>
+        <item>Germany</item>
+        <item>France</item>
+    </string-array>
 </resources>

@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cheapest rates from India to anywhere in the world."
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="#757575"
             android:gravity="center"
             android:layout_marginTop="4dp"/>
@@ -63,8 +63,17 @@
         <Spinner
             android:id="@+id/countrySpinner"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-        android:padding="12dp"/>
+            android:padding="12dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
+            android:prompt="@array/country_array"
+            android:dropDownVerticalOffset="10dp"
+            android:gravity="center"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#D3D3D3"
+            android:entries="@array/country_array"
+            android:popupBackground="@android:color/white"
+            android:layout_height="wrap_content" />
 
 
         <!-- Package Type Radio Buttons -->
