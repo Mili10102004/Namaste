@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/adamina</item>
         <item>@font/agbalumo</item>
+        <item>@font/almendra_sc</item>
         <item>@font/beth_ellen</item>
         <item>@font/charmonman_bold</item>
     </array>

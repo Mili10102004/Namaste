@@ -30,7 +30,7 @@ public class BulkShippingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bulk_shipping);
 
         // Initialize Firebase Database
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://namaste-e16fa-default-rtdb.firebaseio.com/");
+        databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://namaste-e16fa-default-rtdb.firebaseio.com/");
 
         // Link UI components
         pickupCity = findViewById(R.id.pickup_city);
@@ -48,6 +48,7 @@ public class BulkShippingActivity extends AppCompatActivity {
         // Set up button listener
         confirmShip.setOnClickListener(v -> submitBooking());
     }
+
 
     private void submitBooking() {
         // Get values from fields

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--suppress ALL -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#F7F7F7">
+    android:background="#F9F9F9">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:padding="16dp">
 
         <!-- Title -->
         <TextView
@@ -18,30 +18,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bulk Shipping Benefits"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#000000"
-            android:gravity="center"/>
+            android:textColor="#FF5722"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
 
         <!-- Subtitle -->
         <TextView
             android:id="@+id/subtitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Save costs by shipping in bulk. Get discounts on large shipments and enjoy seamless shipping management."
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:gravity="center"
-            android:textColor="#555555"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"/>
+            android:lineSpacingExtra="4dp"
+            android:textColor="#616161"
+            android:layout_marginBottom="16dp" />
 
         <!-- Image -->
         <ImageView
             android:id="@+id/package_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/package_image"
-            android:layout_marginBottom="16dp"/>
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Package Icon" />
 
         <!-- Pickup City -->
         <EditText
@@ -49,77 +52,86 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Pickup City"
-            android:autofillHints="name"
-            android:backgroundTint="#DDDDDD"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginBottom="12dp"
             android:inputType="text"
-            android:background="@color/cardview_light_background"/>
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
-        <!-- Address of Pick up  -->
+        <!-- Address of Pick Up -->
         <EditText
             android:id="@+id/address_pickup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address line1"
-            android:backgroundTint="#DDDDDD"
+            android:hint="Pickup Address Line 1"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
-            android:layout_marginBottom="0dp"
-            android:inputType="text"/>
-        <!-- Address of Pick up  -->
+            android:layout_marginBottom="8dp"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
+
         <EditText
             android:id="@+id/address_pickup2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address line2"
-            android:backgroundTint="#DDDDDD"
+            android:hint="Pickup Address Line 2"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:inputType="text"/>
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
         <!-- Destination City -->
+
+        <!-- Address of Destination -->
         <EditText
             android:id="@+id/destination_city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/custom_edittext_background"
             android:hint="Destination City"
-            android:backgroundTint="#DDDDDD"
-            android:padding="12dp"
-            android:layout_marginBottom="1dp"
-            android:layout_marginTop="5dp"
             android:inputType="text"
-            android:background="@color/cardview_light_background"/>
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
-        <!-- Address of Destination -->
         <EditText
             android:id="@+id/address_destination1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address line1"
-            android:backgroundTint="#DDDDDD"
-            android:padding="12dp"
             android:layout_marginBottom="8dp"
-            android:inputType="text"/>
-        <!-- Address of Destination -->
+            android:background="@drawable/custom_edittext_background"
+            android:hint="Destination Address Line 1"
+            android:inputType="text"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
+
         <EditText
             android:id="@+id/address_destination2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address line2"
-            android:backgroundTint="#DDDDDD"
+            android:hint="Destination Address Line 2"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:inputType="text"/>
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
         <!-- Add Packages Button -->
         <Button
             android:id="@+id/add_packages"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Package"
             android:textColor="#FFFFFF"
             android:backgroundTint="#FF9800"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp" />
 
         <!-- Package Details Title -->
         <TextView
@@ -127,10 +139,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Package Details"
-            android:textSize="16sp"
-            android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:textColor="#424242"
+            android:layout_marginBottom="8dp" />
 
         <!-- Recipient's Name -->
         <EditText
@@ -138,64 +150,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Recipient's Name"
-            android:backgroundTint="#DDDDDD"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="8dp"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
-        <!-- Weight (kg) -->
+        <!-- Weight -->
+
+        <!-- Dimensions -->
         <EditText
             android:id="@+id/weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Weight (kg)"
-            android:backgroundTint="#DDDDDD"
-            android:padding="12dp"
             android:layout_marginBottom="8dp"
-            android:inputType="numberDecimal"/>
-
+            android:background="@drawable/custom_edittext_background"
+            android:hint="Weight (kg)"
+            android:inputType="numberDecimal"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
         <EditText
             android:id="@+id/dimensions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Dimensions (cm)"
-            android:backgroundTint="#DDDDDD"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="8dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
-        <!-- Type of Item -->
+        <!-- Item Type -->
         <EditText
             android:id="@+id/item_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type of Item"
-            android:backgroundTint="#DDDDDD"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="16dp"
-            android:inputType="text"/>
-
-        <!-- Bulk Cost Savings -->
-        <TextView
-            android:id="@+id/bulk_cost_savings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bulk Cost Savings"
-            android:textSize="16sp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginBottom="4dp"/>
-
-        <!-- Estimated Savings -->
-        <TextView
-            android:id="@+id/estimated_savings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estimated Savings: $15"
-            android:textSize="14sp"
-            android:textColor="#4CAF50"
-            android:layout_marginBottom="16dp"/>
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"/>
 
         <!-- Confirm & Ship Button -->
         <Button
@@ -204,8 +204,8 @@
             android:layout_height="wrap_content"
             android:text="Confirm Booking &amp; Ship"
             android:textColor="#FFFFFF"
-            android:backgroundTint="#000000"
-            android:layout_marginBottom="16dp"/>
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="16dp" />
 
     </LinearLayout>
 </ScrollView>

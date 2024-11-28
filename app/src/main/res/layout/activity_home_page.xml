@@ -27,20 +27,19 @@
 
 
                 <ImageView
-                    android:layout_width="208dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="6dp"
+                    android:layout_marginRight="30dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:src="@drawable/namaste_now"
-                    android:textColor="#FF5722"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/namaste_now" />
+
 
                 <ImageButton
                     android:id="@+id/notification"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginBottom="8dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/notification"
@@ -54,11 +53,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Meals That Travel, Love That Stays."
-                android:textSize="18sp"
+                android:fontFamily="@font/agbalumo"
                 android:gravity="center"
-                android:padding="16dp"
-                android:textColor="#000000" />
+                android:padding="25dp"
+                android:text="Meals That Travel, Love That Stays."
+                android:textColor="#FF5722"
+                android:textSize="19sp"
+                android:textStyle="bold" />
 
             <!-- Image Section -->
             <ImageView

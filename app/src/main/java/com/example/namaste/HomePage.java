@@ -15,6 +15,7 @@ public class HomePage extends AppCompatActivity {
     private ImageButton profileButton;
     private ImageButton helpButton;
     private ImageButton notificationButton;  // Add the notification button variable
+    private Button startSendingPackageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,8 @@ public class HomePage extends AppCompatActivity {
         checkTimeButton = findViewById(R.id.checkTimeButton);
         profileButton = findViewById(R.id.profile);
         helpButton = findViewById(R.id.help);
-        notificationButton = findViewById(R.id.notification);  // Initialize the notification button
+        notificationButton = findViewById(R.id.notification);
+        startSendingPackageButton = findViewById(R.id.startSendingPackageButton);// Initialize the notification button
 
         // Set up button click listeners
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +49,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        checkPricesButton.setOnClickListener(new View.OnClickListener() {
+        startSendingPackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to New Order Activity
