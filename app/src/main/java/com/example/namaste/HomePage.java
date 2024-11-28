@@ -14,7 +14,7 @@ public class HomePage extends AppCompatActivity {
     private Button checkTimeButton;
     private ImageButton profileButton;
     private ImageButton helpButton;
-    private Button startSendingPackageButton;
+    private ImageButton notificationButton;  // Add the notification button variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +26,9 @@ public class HomePage extends AppCompatActivity {
         checkTimeButton = findViewById(R.id.checkTimeButton);
         profileButton = findViewById(R.id.profile);
         helpButton = findViewById(R.id.help);
-        startSendingPackageButton = findViewById(R.id.startSendingPackageButton);
+        notificationButton = findViewById(R.id.notification);  // Initialize the notification button
 
         // Set up button click listeners
-
-        startSendingPackageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirect to Shipping Calculator Activity
-                Intent intent = new Intent(HomePage.this, NewOrderActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,13 +65,21 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-
-
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to Help & Support Activity
                 Intent intent = new Intent(HomePage.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the notification button click listener
+        notificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to NotificationPage Activity
+                Intent intent = new Intent(HomePage.this, NotificationPage.class);
                 startActivity(intent);
             }
         });

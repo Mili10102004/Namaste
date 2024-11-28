@@ -33,9 +33,7 @@
         <activity
             android:name=".HomePage"
             android:exported="false" />
-        <activity
-            android:name=".NotificationPage"
-            android:exported="false" />
+        <activity android:name=".NotificationPage" android:exported="false" />
         <activity
             android:name=".OrderDetailsActivity"
             android:exported="false" />
