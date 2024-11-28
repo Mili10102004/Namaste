@@ -84,6 +84,12 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+    public void skipToHome(View view) {
+        Intent intent = new Intent(SignupActivity.this, HomePage.class);
+        startActivity(intent);
+        finish();  // Close the sign-up activity
+    }
+
     // Go to Login Activity (called by the footer text click)
     public void goToLogin(View view) {
         Intent intent = new Intent(SignupActivity.this, SplashActivity.class);
