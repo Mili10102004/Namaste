@@ -14,6 +14,7 @@ public class HomePage extends AppCompatActivity {
     private Button checkTimeButton;
     private ImageButton profileButton;
     private ImageButton helpButton;
+    private ImageButton notificationButton;  // Add the notification button variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,9 @@ public class HomePage extends AppCompatActivity {
         checkTimeButton = findViewById(R.id.checkTimeButton);
         profileButton = findViewById(R.id.profile);
         helpButton = findViewById(R.id.help);
+        notificationButton = findViewById(R.id.notification);  // Initialize the notification button
 
         // Set up button click listeners
-
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,13 +56,21 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-
-
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to Help & Support Activity
                 Intent intent = new Intent(HomePage.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the notification button click listener
+        notificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to NotificationPage Activity
+                Intent intent = new Intent(HomePage.this, NotificationPage.class);
                 startActivity(intent);
             }
         });
