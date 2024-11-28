@@ -11,11 +11,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText signupName, signupEmail, signupPassword, signupConfirmPassword;
     private Button signupButton;
     private TextView footerText;
+
+    // Firebase Realtime Database reference
+    private FirebaseDatabase database;
+    private DatabaseReference usersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,9 @@ public class SignupActivity extends AppCompatActivity {
         signupButton = findViewById(R.id.signup_button);
         footerText = findViewById(R.id.footer_text);
 
-
+        // Initialize Firebase
+        database = FirebaseDatabase.getInstance();
+        usersRef = database.getReference("users");  // Reference to 'users' node
 
         // Sign Up Button OnClickListener
         signupButton.setOnClickListener(v -> {
@@ -50,13 +59,27 @@ public class SignupActivity extends AppCompatActivity {
             } else if (!password.equals(confirmPassword)) {
                 signupConfirmPassword.setError("Passwords do not match");
             } else {
-                // Simulate successful sign-up
-                Toast.makeText(SignupActivity.this, "Sign-Up Successful", Toast.LENGTH_SHORT).show();
+                // Create a User object
+                User newUser = new User(name, email, password);
 
-                // Redirect to Login Activity or Home Activity
-                Intent intent = new Intent(SignupActivity.this, HomePage.class);
-                startActivity(intent);
-                finish();  // Close the sign-up activity
+                // Store the user data in Firebase Realtime Database under the 'users' node
+                String userId = usersRef.push().getKey();  // Generate unique ID for the user
+                if (userId != null) {
+                    usersRef.child(userId).setValue(newUser)
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    // Simulate successful sign-up
+                                    Toast.makeText(SignupActivity.this, "Sign-Up Successful", Toast.LENGTH_SHORT).show();
+
+                                    // Redirect to Home Page
+                                    Intent intent = new Intent(SignupActivity.this, HomePage.class);
+                                    startActivity(intent);
+                                    finish();  // Close the sign-up activity
+                                } else {
+                                    Toast.makeText(SignupActivity.this, "Failed to sign up. Please try again.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
             }
         });
     }
