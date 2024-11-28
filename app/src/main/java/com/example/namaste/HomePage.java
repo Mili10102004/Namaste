@@ -14,6 +14,7 @@ public class HomePage extends AppCompatActivity {
     private Button checkTimeButton;
     private ImageButton profileButton;
     private ImageButton helpButton;
+    private Button startSendingPackageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +26,19 @@ public class HomePage extends AppCompatActivity {
         checkTimeButton = findViewById(R.id.checkTimeButton);
         profileButton = findViewById(R.id.profile);
         helpButton = findViewById(R.id.help);
+        startSendingPackageButton = findViewById(R.id.startSendingPackageButton);
 
         // Set up button click listeners
+
+        startSendingPackageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to Shipping Calculator Activity
+                Intent intent = new Intent(HomePage.this, NewOrderActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +57,15 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        checkPricesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to New Order Activity
+                Intent intent = new Intent(HomePage.this, NewOrderActivity.class);
+                startActivity(intent);
+            }
+        });        
 
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
