@@ -213,30 +213,36 @@
 
     <!-- Estimate Section in Card -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/basicEstimateSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        app:layout_constraintTop_toBottomOf="@id/getEstimateButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp">
+    android:id="@+id/basicEstimateSection"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:layout_constraintTop_toBottomOf="@id/getEstimateButton"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_margin="16dp"
+    android:backgroundTint="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:divider="@android:drawable/divider_horizontal_bright"
+        android:dividerPadding="8dp">
 
+        <!-- Title Section -->
         <TextView
             android:id="@+id/basicEstimateTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Basic Estimate"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="#212121"
-            android:fontFamily="sans-serif-medium"/>
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="12dp" />
 
         <!-- Shipping Type Text -->
         <TextView
@@ -246,27 +252,28 @@
             android:text="Express Shipping"
             android:textSize="14sp"
             android:textColor="#1E88E5"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginBottom="8dp"/>
 
         <!-- Price Breakdown Section -->
+        <TextView
+            android:id="@+id/originalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price: ₹0"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp" />
 
-            <TextView
-                android:id="@+id/originalPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price: ₹0"
-                android:textSize="14sp"
-                android:textColor="#757575"
-                android:layout_marginTop="8dp" />
-
-            <TextView
-                android:id="@+id/discountPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Discounted Price: ₹0"
-                android:textSize="14sp"
-                android:textColor="#D32F2F"
-                android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/discountPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discounted Price: ₹0"
+            android:textSize="14sp"
+            android:textColor="#D32F2F"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp" />
 
         <!-- Tax Section -->
         <TextView
@@ -276,9 +283,10 @@
             android:text="Tax (18%): ₹0"
             android:textSize="14sp"
             android:textColor="#757575"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
-            <!-- Shipping Charge Section -->
+        <!-- Shipping Charge Section -->
         <TextView
             android:id="@+id/shippingCharge"
             android:layout_width="wrap_content"
@@ -286,7 +294,8 @@
             android:text="Shipping: ₹0"
             android:textSize="14sp"
             android:textColor="#757575"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
         <!-- Estimated Delivery Time -->
         <TextView
@@ -296,7 +305,8 @@
             android:text="Estimated Delivery: 5-7 days"
             android:textSize="14sp"
             android:textColor="#757575"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
 
         <!-- Final Total Section -->
         <TextView
@@ -304,13 +314,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total: ₹0"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="#212121"
             android:layout_marginTop="16dp"
             android:textStyle="bold" />
-
+        
     </LinearLayout>
-    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
