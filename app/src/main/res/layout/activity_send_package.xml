@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F2F2F2">
+
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Package"
+        android:textSize="24sp"
+        android:textColor="#333"
+        android:paddingBottom="16dp"
+        android:textStyle="bold" />
+
+    <!-- Pickup Address -->
+    <TextView
+        android:id="@+id/pickup_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pickup Address"
+        android:textColor="#333"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/pickup_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search pickup location"
+        android:background="@color/cardview_light_background"
+        android:padding="16dp"
+    android:minHeight="48dp"
+    android:textColor="#333"
+    android:textSize="14sp" />
+
+
+    <!-- Delivery Address -->
+    <TextView
+        android:id="@+id/delivery_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery Address"
+        android:textColor="#333"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp" />
+
+    <EditText
+        android:id="@+id/delivery_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search delivery location"
+        android:background="@color/cardview_light_background"
+        android:padding="16dp"
+    android:minHeight="48dp"
+    android:textColor="#333"
+    android:textSize="14sp" />
+
+
+    <!-- Package Details -->
+    <TextView
+        android:id="@+id/package_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Package Details"
+        android:textColor="#333"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp" />
+
+    <EditText
+        android:id="@+id/package_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="e.g. small, medium, large"
+        android:background="@color/cardview_light_background"
+        android:padding="16dp"
+    android:minHeight="48dp"
+    android:textColor="#333"
+    android:textSize="14sp" />
+
+
+    <!-- Special Instructions -->
+    <CheckBox
+        android:id="@+id/special_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any instructions? (e.g. Don’t ring the doorbell)"
+        android:textColor="#333"
+        android:textSize="14sp"
+        android:paddingTop="16dp" />
+
+    <!-- Payment Details -->
+    <TextView
+        android:id="@+id/payment_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment Details"
+        android:textColor="#333"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp" />
+
+    <TextView
+        android:id="@+id/delivery_charges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery Charges"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/amount_payable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount Payable ₹120"
+        android:textColor="#333"
+        android:textSize="14sp" />
+
+    <!-- Buttons -->
+
+    <TextView
+        android:id="@+id/terms_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:layout_marginTop="80dp"
+        android:text="By confirming, I accept that my package does not contain illegal materials. Details about your package will be shared as per terms and conditions."
+        android:textColor="#666"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="24dp">
+
+        <Button
+            android:id="@+id/schedule_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FF5722"
+            android:padding="12dp"
+            android:text="Schedule"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/pickup_now_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#4CAF50"
+            android:padding="12dp"
+            android:text="Pick up now"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Footer text for terms and conditions -->
+
+</LinearLayout>

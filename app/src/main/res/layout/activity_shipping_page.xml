@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FAFAFA">
+
+    <!-- Header Section with Title & Subtitle -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate Shipping Cost"
+            android:textSize="20sp"
+            android:textColor="#212121"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cheapest rates from India to anywhere in the world."
+            android:textSize="16sp"
+            android:textColor="#757575"
+            android:gravity="center"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Input Section -->
+    <LinearLayout
+        android:id="@+id/inputSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/headerSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Country Selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Destination Country"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:layout_marginBottom="4dp"/>
+
+        <Spinner
+            android:id="@+id/countrySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+        android:padding="12dp"/>
+
+
+        <!-- Package Type Radio Buttons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Package Type"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"/>
+
+        <RadioGroup
+            android:id="@+id/packageTypeGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <RadioButton
+                android:id="@+id/nonDocumentRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Non-Document"
+                android:textColor="#212121"/>
+
+            <RadioButton
+                android:id="@+id/documentRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Document"
+                android:textColor="#212121" />
+
+            <RadioButton
+                android:id="@+id/temperatureRadio"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+            android:text="Temperature Controlled"
+            android:textColor="#212121" />
+
+
+        </RadioGroup>
+
+        <!-- Weight Input Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Package Weight *"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/weightInputGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp">
+
+            <RadioGroup
+                android:id="@+id/weightUnitGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/kgRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KG"
+                    android:checked="true"
+                    android:textColor="#212121"/>
+
+                <RadioButton
+                    android:id="@+id/lbRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LB"
+                    android:textColor="#212121"/>
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/weightInput"
+                android:layout_width="60dp"
+                android:layout_height="48dp"
+            android:inputType="numberDecimal"
+            android:hint="5.0"
+            android:gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+
+            <Button
+            android:id="@+id/minusButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="-"
+            android:backgroundTint="#42A5F5"
+            android:textColor="@android:color/white"/>
+
+
+            <Button
+                android:id="@+id/plusButton"
+                android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="+"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#42A5F5"
+            android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/volumetricWeightCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volumetric Weight (Optional)"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+    <!-- Action Button -->
+    <Button
+        android:id="@+id/getEstimateButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Get An Estimate"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#FF9800"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/inputSection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
+
+    <!-- Estimate Section in Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/basicEstimateSection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/getEstimateButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/basicEstimateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Basic Estimate"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:fontFamily="sans-serif-medium"/>
+
+            <TextView
+                android:id="@+id/shippingTypeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Express Shipping"
+                android:textSize="14sp"
+                android:textColor="#1E88E5"
+                android:layout_marginTop="4dp"/>
+
+            <LinearLayout
+                android:id="@+id/priceDiscountLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/originalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹12995"
+                    android:textSize="14sp"
+                    android:textColor="#757575"                />
+
+                <TextView
+                    android:id="@+id/discountPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹9999"
+                    android:textSize="14sp"
+                    android:textColor="#D32F2F"
+                    android:layout_marginStart="16dp" />
+
+            </LinearLayout>
+
+            <!-- Estimated Time for Delivery -->
+            <TextView
+                android:id="@+id/estimatedDeliveryTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estimated Delivery: 5-7 days"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

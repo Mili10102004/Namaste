@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F7F7F7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bulk Shipping Benefits"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"/>
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save costs by shipping in bulk. Get discounts on large shipments and enjoy seamless shipping management."
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="#555555"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Image -->
+        <ImageView
+            android:id="@+id/package_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/package_image"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Pickup City -->
+        <EditText
+            android:id="@+id/pickup_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pickup City"
+            android:autofillHints="name"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="1dp"
+            android:inputType="text"
+            android:background="@color/cardview_light_background"/>
+
+        <!-- Address of Pick up  -->
+        <EditText
+            android:id="@+id/address_pickup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address line1"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="0dp"
+            android:inputType="text"/>
+        <!-- Address of Pick up  -->
+        <EditText
+            android:id="@+id/address_pickup2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address line2"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"/>
+
+        <!-- Destination City -->
+        <EditText
+            android:id="@+id/destination_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Destination City"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="5dp"
+            android:inputType="text"
+            android:background="@color/cardview_light_background"/>
+
+        <!-- Address of Destination -->
+        <EditText
+            android:id="@+id/address_destination1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address line1"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"/>
+        <!-- Address of Destination -->
+        <EditText
+            android:id="@+id/address_destination2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address line2"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"/>
+
+        <!-- Add Packages Button -->
+        <Button
+            android:id="@+id/add_packages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Package"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FF9800"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Package Details Title -->
+        <TextView
+            android:id="@+id/package_details_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Package Details"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Recipient's Name -->
+        <EditText
+            android:id="@+id/recipient_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Recipient's Name"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"/>
+
+        <!-- Weight (kg) -->
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight (kg)"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="numberDecimal"/>
+
+
+        <EditText
+            android:id="@+id/dimensions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dimensions (cm)"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text" />
+
+        <!-- Type of Item -->
+        <EditText
+            android:id="@+id/item_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type of Item"
+            android:backgroundTint="#DDDDDD"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"/>
+
+        <!-- Bulk Cost Savings -->
+        <TextView
+            android:id="@+id/bulk_cost_savings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bulk Cost Savings"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- Estimated Savings -->
+        <TextView
+            android:id="@+id/estimated_savings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estimated Savings: $15"
+            android:textSize="14sp"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Confirm & Ship Button -->
+        <Button
+            android:id="@+id/confirm_ship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Booking &amp; Ship"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#000000"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

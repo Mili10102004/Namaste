@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">NamasteNow1</string>
+    <string name="temperature">Temperature</string>
+    <string name="notification_icon_desc">Notification Button</string>
+
+</resources>

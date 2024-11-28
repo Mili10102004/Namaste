@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header Section -->
+        <TextView
+            android:id="@+id/help_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Help &amp; Support"
+            android:textColor="#333"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="24dp"/>
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/backbtn"
+            android:contentDescription="Back Button"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- FAQ Section -->
+        <TextView
+            android:id="@+id/faq_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Frequently Asked Questions"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="center">
+
+            <!-- Question 1 -->
+            <TextView
+                android:id="@+id/question_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How do I send a package?"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/answer_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="To send a package, fill in the pickup and delivery addresses and select the package size."
+                android:textColor="#666"
+                android:textSize="14sp"
+                android:paddingBottom="16dp"/>
+
+            <!-- Question 2 -->
+            <TextView
+                android:id="@+id/question_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What if I have special delivery instructions?"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/answer_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You can specify any special instructions such as ‘Don’t ring the bell’ in the relevant field."
+                android:textColor="#666"
+                android:textSize="14sp"
+                android:paddingBottom="16dp"/>
+
+            <!-- Question 3 -->
+            <TextView
+                android:id="@+id/question_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How can I track my package?"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/answer_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="You can track your package in real-time through the 'Your Orders' section."
+                android:textColor="#666"
+                android:textSize="14sp"
+                android:paddingBottom="16dp"/>
+        </LinearLayout>
+
+        <!-- Contact Us Section -->
+        <TextView
+            android:id="@+id/contact_us_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:padding="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/contact_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email us: support@yourcompany.com"
+                android:textColor="#FF5722"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/contact_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Call us: +91-123-456-7890"
+                android:textColor="#FF5722"
+                android:textSize="16sp"
+                android:paddingBottom="8dp"/>
+        </LinearLayout>
+
+        <!-- Feedback Section -->
+        <TextView
+            android:id="@+id/feedback_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Give us your Feedback"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:paddingBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/feedback_input"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="Write your feedback here"
+            android:inputType="textMultiLine"
+            android:background="@color/cardview_light_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Next Button -->
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:background="@color/cardview_shadow_start_color"
+            android:padding="16dp"/>
+
+        <!-- Footer Text -->
+        <TextView
+            android:id="@+id/footer_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="For more help, visit our website or check out our Terms &amp; Conditions."
+            android:textColor="#666"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingTop="16dp"/>
+    </LinearLayout>
+</ScrollView>

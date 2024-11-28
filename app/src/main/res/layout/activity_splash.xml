@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFA500">
+
+    <!-- Screen 1: Logo and Tagline -->
+    <LinearLayout
+        android:id="@+id/screen1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/charmonman_bold"
+            android:text="Namaste Now"
+            android:textColor="#FFFFFF"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meals That Travel, Love That Stays"
+            android:textSize="19sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btnNext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:text="Next"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#FFA500" />
+    </LinearLayout>
+
+    <!-- Screen 2: Features Overview -->
+    <LinearLayout
+        android:id="@+id/screen2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
+        android:visibility="gone"> <!-- Initially hidden -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Welcome to Namaste Now"
+            android:fontFamily="@font/adamina"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your reliable connection to home."
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/adamina"
+            android:text="Experience seamless home-to-home delivery designed to keep you connected to your roots, featuring freshness-preserving temperature-controlled packaging, cost-effective bulk shipping, and the ease of real-time global tracking—bringing love and comfort from home to anywhere in the world."
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnNext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#FFA500" />
+    </LinearLayout>
+
+</RelativeLayout>

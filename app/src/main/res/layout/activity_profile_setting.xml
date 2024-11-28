@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header (Back button and Title) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Back Button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile and  Settings"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+
+        <!-- Profile Details Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile Details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="Profile Image"
+                android:layout_marginEnd="16dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                android:id="@+id/first_name_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:padding="16dp"
+                android:minHeight="48dp"
+                android:background="@android:drawable/editbox_background" />
+
+
+                <EditText
+                    android:id="@+id/last_name_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Last Name"
+                    android:padding="16dp"
+                android:minHeight="48dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:drawable/editbox_background" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Address Book Section in a Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cardview_shadow_start_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address Book"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1234 Elm Street, Apt 101\nSpringfield, IL 62701"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/add_new_address_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add New Address"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Payment Methods Section in a Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cardview_shadow_start_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Methods"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Visa Card -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Visa\n**** **** **** 1234"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <!-- Mastercard -->
+            <Button
+                android:id="@+id/edit_visa_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Edit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mastercard\n**** **** **** 5678"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <!-- PayPal -->
+            <Button
+                android:id="@+id/edit_mastercard_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Edit" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PayPal\nuser@gmail.com"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/edit_paypal_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Order History Section in a Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cardview_shadow_start_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order History"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Order #1 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order #1234\nDate: Sep 1, 2023  Total: $45.00"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/view_order_details_button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Details"
+                android:layout_marginTop="4dp" />
+
+            <!-- Order #2 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order #5678\nDate: Aug 21, 2023  Total: $89.00"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/view_order_details_button_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Details"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Loyalty Points Section in a Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cardview_shadow_start_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loyalty Points &amp; Referral Program"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Points: 1500\nReferral Code: ABC123"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/referral_details_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Referral Details"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Notification Settings Section in a Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/cardview_shadow_start_color">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification Settings"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Promotional Notifications"
+                android:layout_marginTop="8dp" />
+
+            <Switch
+                android:id="@+id/promotional_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transactional Notifications"
+                android:layout_marginTop="8dp" />
+
+            <Switch
+                android:id="@+id/transactional_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Allow Tracking"
+                android:layout_marginTop="8dp" />
+
+            <CheckBox
+                android:id="@+id/allow_tracking_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Profile to Friends"
+                android:layout_marginTop="8dp" />
+
+            <CheckBox
+                android:id="@+id/show_profile_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

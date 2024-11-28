@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "6957562483",
+    "firebase_url": "https://namaste-e16fa-default-rtdb.firebaseio.com",
+    "project_id": "namaste-e16fa",
+    "storage_bucket": "namaste-e16fa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6957562483:android:3fb4e8cd747a72f8d3c806",
+        "android_client_info": {
+          "package_name": "com.example.namaste"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARemjX7orcLGrOeWnMvN-LFXvm1_BfAU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
