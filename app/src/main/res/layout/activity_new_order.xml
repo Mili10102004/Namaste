@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    android:background="#F7F7F7">
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/optionSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select the Option"
+        android:textSize="32sp"
+        android:textColor="#2C3E50"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Button for Individual Order -->
+    <Button
+        android:id="@+id/individualOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Individual Order"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#3498DB"
+        android:layout_gravity="center"
+        android:drawablePadding="8dp"/>
+
+    <!-- OR Divider -->
+    <TextView
+        android:id="@+id/orTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textSize="20sp"
+        android:textColor="#7F8C8D"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Button for Bulk Order -->
+    <Button
+        android:id="@+id/bulkOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bulk Order"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#E67E22"
+        android:layout_gravity="center"
+        android:drawablePadding="8dp"/>
+
+    <!-- Shipping Options Section -->
+    <TextView
+        android:id="@+id/bulkId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bulk Shipping"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#2C3E50"
+        android:layout_gravity="start"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/bulkInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Cost-Effective: Lowers shipping cost per parcel by grouping multiple parcels.\n• Warehouse Pickup: Receiver collects parcels from a warehouse or specific location.\n• Slower Delivery: Takes longer due to grouping and sorting of parcels."
+        android:textSize="14sp"
+        android:textColor="#7F8C8D"
+        android:layout_gravity="start"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/individualId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Individual Shipping"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#2C3E50"
+        android:layout_gravity="start"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/individualInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="163dp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="16dp"
+        android:text="• Higher Shipping Costs: Individual parcels are shipped separately, resulting in higher shipping costs.\n• Direct Delivery to Your Home: Parcels are delivered straight to the recipient’s doorstep.\n• Faster Delivery: Faster delivery, as each parcel is shipped individually."
+        android:textColor="#7F8C8D"
+        android:textSize="14sp" />
+</LinearLayout>

@@ -47,6 +47,15 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        checkPricesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to New Order Activity
+                Intent intent = new Intent(HomePage.this, NewOrderActivity.class);
+                startActivity(intent);
+            }
+        });        
+
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

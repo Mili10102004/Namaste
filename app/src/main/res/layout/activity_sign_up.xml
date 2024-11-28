@@ -26,6 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="50dp"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#333"
@@ -33,26 +35,32 @@
         android:paddingBottom="24dp"/>
 
     <!-- Full Name Input -->
+
+    <!-- Email Input -->
+
     <EditText
         android:id="@+id/signup_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="#CCC6C6"
+        android:background="@drawable/custom_edittext_background"
         android:backgroundTint="#CAC3C3"
         android:hint="Full Name"
         android:inputType="textPersonName"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
 
-    <!-- Email Input -->
     <EditText
         android:id="@+id/signup_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:inputType="textEmailAddress"
         android:padding="16dp"
-        android:background="#CCC6C6"
+        android:background="@drawable/custom_edittext_background"
         android:backgroundTint="#CAC3C3"
         android:layout_marginBottom="16dp" />
 
@@ -62,9 +70,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:background="#CCC6C6"
+        android:background="@drawable/custom_edittext_background"
         android:backgroundTint="#CAC3C3"
         android:layout_marginBottom="16dp" />
 
@@ -74,9 +84,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:background="#CCC6C6"
+        android:background="@drawable/custom_edittext_background"
         android:backgroundTint="#CAC3C3"
         android:layout_marginBottom="16dp" />
 
@@ -85,6 +97,7 @@
         android:id="@+id/signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Sign Up"
         android:textColor="#FFFFFF"
 
@@ -100,15 +113,14 @@
         android:id="@+id/footer_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Already have an account? Login"
-        android:textColor="#FF5722"
-        android:textSize="14sp"
-        android:gravity="center"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        android:gravity="center"
+        android:minHeight="48dp"
         android:onClick="goToLogin"
         android:padding="16dp"
-    android:minHeight="48dp"
-    />
+        android:text="Already have an account? Login"
+        android:textColor="#FF5722"
+        android:textSize="14sp" />
 
 </LinearLayout>

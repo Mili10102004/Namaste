@@ -26,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Meals That Travel, Love That Stays"
+            android:fontFamily="@font/adamina"
             android:textSize="19sp"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="32dp" />
@@ -60,27 +61,23 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your reliable connection to home."
-            android:textSize="16sp"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="32dp" />
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="75dp"
             android:fontFamily="@font/adamina"
             android:text="Experience seamless home-to-home delivery designed to keep you connected to your roots, featuring freshness-preserving temperature-controlled packaging, cost-effective bulk shipping, and the ease of real-time global tracking—bringing love and comfort from home to anywhere in the world."
             android:textColor="#FFFFFF"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnNext2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
             android:text="Next"
             android:backgroundTint="#FFFFFF"
             android:textColor="#FFA500" />
