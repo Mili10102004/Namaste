@@ -98,18 +98,10 @@
             android:id="@+id/nonDocumentRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Non-Document"
+            android:text="Non-Document/Document"
             android:textColor="#212121"
             android:textSize="14sp"
-            android:layout_gravity="center_vertical" />
-
-        <RadioButton
-            android:id="@+id/documentRadio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Document"
-            android:textColor="#212121"
-            android:textSize="14sp"
+            android:checked="true"
             android:layout_gravity="center_vertical" />
 
         <RadioButton
@@ -182,7 +174,6 @@
             android:backgroundTint="#42A5F5"
             android:textColor="@android:color/white"/>
 
-
             <Button
                 android:id="@+id/plusButton"
                 android:layout_width="48dp"
@@ -232,67 +223,93 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/basicEstimateTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:text="Basic Estimate"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:fontFamily="sans-serif-medium"/>
+
+        <!-- Shipping Type Text -->
+        <TextView
+            android:id="@+id/shippingTypeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Express Shipping"
+            android:textSize="14sp"
+            android:textColor="#1E88E5"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Price Breakdown Section -->
 
             <TextView
-                android:id="@+id/basicEstimateTitle"
+                android:id="@+id/originalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Basic Estimate"
-                android:textSize="16sp"
-                android:textColor="#212121"
-                android:fontFamily="sans-serif-medium"/>
-
-            <TextView
-                android:id="@+id/shippingTypeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Express Shipping"
-                android:textSize="14sp"
-                android:textColor="#1E88E5"
-                android:layout_marginTop="4dp"/>
-
-            <LinearLayout
-                android:id="@+id/priceDiscountLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/originalPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹12995"
-                    android:textSize="14sp"
-                    android:textColor="#757575"                />
-
-                <TextView
-                    android:id="@+id/discountPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="₹9999"
-                    android:textSize="14sp"
-                    android:textColor="#D32F2F"
-                    android:layout_marginStart="16dp" />
-
-            </LinearLayout>
-
-            <!-- Estimated Time for Delivery -->
-            <TextView
-                android:id="@+id/estimatedDeliveryTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Estimated Delivery: 5-7 days"
+                android:text="Price: ₹0"
                 android:textSize="14sp"
                 android:textColor="#757575"
                 android:layout_marginTop="8dp" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/discountPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discounted Price: ₹0"
+                android:textSize="14sp"
+                android:textColor="#D32F2F"
+                android:layout_marginTop="8dp" />
+
+        <!-- Tax Section -->
+        <TextView
+            android:id="@+id/taxCharge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tax (18%): ₹0"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="8dp" />
+
+            <!-- Shipping Charge Section -->
+        <TextView
+            android:id="@+id/shippingCharge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping: ₹0"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="8dp" />
+
+        <!-- Estimated Delivery Time -->
+        <TextView
+            android:id="@+id/estimatedDeliveryTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estimated Delivery: 5-7 days"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:layout_marginTop="8dp" />
+
+        <!-- Final Total Section -->
+        <TextView
+            android:id="@+id/finalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: ₹0"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

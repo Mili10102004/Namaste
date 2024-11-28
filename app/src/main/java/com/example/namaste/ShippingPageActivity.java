@@ -26,7 +26,13 @@ public class ShippingPageActivity extends AppCompatActivity {
     private RadioGroup weightUnitGroup;
     private Button minusButton, plusButton, getEstimateButton;
     private CheckBox volumetricWeightCheckbox;
-    private TextView basicEstimateTitle, originalPrice, discountPrice, estimatedDeliveryTime;
+    private TextView basicEstimateTitle, originalPrice, discountPrice, estimatedDeliveryTime, shippingChargeText, taxChargeText, finalPriceText;
+
+    // Constants
+    private static final double BASE_COST = 1000.0;  // Base cost for the package (in INR)
+    private static final double SHIPPING_COST_PER_KG = 100.0;  // Shipping cost per kg
+    private static final double DISCOUNT_PERCENTAGE = 0.2;  // 20% discount
+    private static final double TAX_PERCENTAGE = 0.18;  // 18% GST Tax
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,9 @@ public class ShippingPageActivity extends AppCompatActivity {
         originalPrice = findViewById(R.id.originalPrice);
         discountPrice = findViewById(R.id.discountPrice);
         estimatedDeliveryTime = findViewById(R.id.estimatedDeliveryTime);
+        shippingChargeText = findViewById(R.id.shippingCharge);
+        taxChargeText = findViewById(R.id.taxCharge);
+        finalPriceText = findViewById(R.id.finalPrice);
 
         // Populate the Spinner with country names and set the placeholder
         List<String> countries = Arrays.asList("Select Country", "India", "USA", "Canada", "Germany", "France");
@@ -149,26 +158,41 @@ public class ShippingPageActivity extends AppCompatActivity {
         boolean isTemperatureControlled = packageType.equals("Temperature Controlled");
 
         // Calculate shipping cost and estimate
-        double shippingCost = calculateCost(weight, selectedCountry, isTemperatureControlled, isVolumetricWeight);
+        double shippingCost = calculateShippingCost(weight, selectedCountry, isTemperatureControlled, isVolumetricWeight);
 
         // Show results
         displayEstimate(shippingCost, packageType);
     }
 
-    private double calculateCost(double weight, String destinationCountry, boolean isTemperatureControlled, boolean isVolumetricWeight) {
-        double baseCost = 1000.0;  // Example base cost
-        double weightMultiplier = weight * 100;  // Example multiplier for weight
-        double temperatureMultiplier = isTemperatureControlled ? 200 : 0;
-        double volumetricMultiplier = isVolumetricWeight ? 150 : 0;
+    private double calculateShippingCost(double weight, String destinationCountry, boolean isTemperatureControlled, boolean isVolumetricWeight) {
+        // Base cost and weight calculation
+        double weightShippingCost = weight * SHIPPING_COST_PER_KG;
 
-        return baseCost + weightMultiplier + temperatureMultiplier + volumetricMultiplier;
+        // Additional costs
+        double temperatureCost = isTemperatureControlled ? 200.0 : 0;
+        double volumetricCost = isVolumetricWeight ? 150.0 : 0;
+
+        return BASE_COST + weightShippingCost + temperatureCost + volumetricCost;
     }
 
     private void displayEstimate(double shippingCost, String packageType) {
+        // Calculate the discount price
+        double discountPriceValue = shippingCost * (1 - DISCOUNT_PERCENTAGE);
+
+        // Calculate tax (18% GST)
+        double taxAmount = discountPriceValue * TAX_PERCENTAGE;
+
+        // Final total price
+        double finalPrice = discountPriceValue + taxAmount;
+
+        // Update UI
         basicEstimateTitle.setText("Shipping Estimate: " + packageType);
-        originalPrice.setText("₹" + String.format("%.2f", shippingCost));
-        discountPrice.setText("₹" + String.format("%.2f", shippingCost * 0.8)); // Discount applied (20% off)
+        originalPrice.setText("Original Price: ₹" + String.format("%.2f", shippingCost));
+        discountPrice.setText("Discounted Price: ₹"+ String.format("%.2f", discountPriceValue));  // After discount (20% off)
         estimatedDeliveryTime.setText("Estimated Delivery: 5-7 days");
+        shippingChargeText.setText("Shipping: ₹" + String.format("%.2f", shippingCost - BASE_COST));
+        taxChargeText.setText("Tax (18%): ₹" + String.format("%.2f", taxAmount));
+        finalPriceText.setText("Total: ₹" + String.format("%.2f", finalPrice));
 
         Toast.makeText(this, "Shipping cost calculated", Toast.LENGTH_SHORT).show();
     }
