@@ -46,7 +46,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_margin="16dp"
         app:layout_constraintTop_toBottomOf="@id/headerSection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -91,33 +90,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
+            android:gravity="center_vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp">
 
-            <RadioButton
-                android:id="@+id/nonDocumentRadio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Non-Document"
-                android:textColor="#212121"/>
+        <RadioButton
+            android:id="@+id/nonDocumentRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Non-Document"
+            android:textColor="#212121"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical" />
 
-            <RadioButton
-                android:id="@+id/documentRadio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Document"
-                android:textColor="#212121" />
+        <RadioButton
+            android:id="@+id/documentRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Document"
+            android:textColor="#212121"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical" />
 
-            <RadioButton
-                android:id="@+id/temperatureRadio"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
+        <RadioButton
+            android:id="@+id/temperatureRadio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Temperature Controlled"
-            android:textColor="#212121" />
+            android:textColor="#212121"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical" />
 
+    </RadioGroup>
 
-        </RadioGroup>
-
-        <!-- Weight Input Section -->
+    <!-- Weight Input Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +137,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
             android:layout_marginTop="8dp">
 
             <RadioGroup
@@ -152,6 +157,7 @@
                     android:id="@+id/lbRadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="26dp"
                     android:text="LB"
                     android:textColor="#212121"/>
             </RadioGroup>
@@ -160,11 +166,11 @@
                 android:id="@+id/weightInput"
                 android:layout_width="60dp"
                 android:layout_height="48dp"
-            android:inputType="numberDecimal"
-            android:hint="5.0"
-            android:gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"/>
+                android:inputType="numberDecimal"
+                android:hint="5.0"
+                android:gravity="center"
+                android:layout_marginStart="26dp"
+                android:layout_marginEnd="0dp"/>
 
 
             <Button
@@ -172,6 +178,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="-"
+                android:layout_marginStart="40dp"
             android:backgroundTint="#42A5F5"
             android:textColor="@android:color/white"/>
 
@@ -181,7 +188,7 @@
                 android:layout_width="48dp"
             android:layout_height="48dp"
             android:text="+"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:backgroundTint="#42A5F5"
             android:textColor="@android:color/white"/>
 
