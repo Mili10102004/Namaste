@@ -40,7 +40,7 @@ public class OrderConfirmation extends AppCompatActivity {
         if (orderAmount != null) {
             orderTotalAmount.setText(orderAmount);
         } else {
-            orderTotalAmount.setText("$0.00"); // Default if no amount passed
+            orderTotalAmount.setText("₹500.00"); // Default if no amount passed
         }
 
         // Set payment status message
