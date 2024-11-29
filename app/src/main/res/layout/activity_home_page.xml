@@ -312,168 +312,172 @@
                 android:paddingBottom="8dp" />
 
             <TableLayout
-                android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1">
+
+    <!-- First Row with two services -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <!-- Service 1 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:elevation="4dp">
+
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:background="@color/white"
+                android:src="@drawable/service1" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:stretchColumns="1"
-                android:paddingEnd="16dp"
-                android:paddingStart="16dp">
+                android:text="International Shipping"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="12dp" />
 
-                <!-- First Row with two services -->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We deliver to over 50 countries with fast and reliable international shipping."
+                android:textSize="13sp"
+                android:textColor="#555555"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
 
-                    <!-- Service 1 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center"
-                        android:background="?android:attr/selectableItemBackground">
+        <!-- Service 2 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:elevation="4dp">
 
-                        <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
-                            android:background="@color/white"
-                            android:src="@drawable/service1" />
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:background="@color/white"
+                android:src="@drawable/service2" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="International Shipping"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Custom (Temperature-controlled Packaging)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="12dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="We deliver to over 50 countries with fast and reliable international shipping."
-                            android:textSize="13sp"
-                            android:textColor="#555555"
-                            android:gravity="center"
-                            android:layout_marginTop="8dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Our packaging is designed to preserve freshness and safety during long shipments."
+                android:textColor="#555555"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </TableRow>
 
-                    </LinearLayout>
+    <!-- Second Row with two services -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-                    <!-- Service 2 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="222dp"
-                        android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+        <!-- Service 3 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:elevation="4dp">
 
-                        <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
-                            android:background="@color/white"
-                            android:src="@drawable/service2" />
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:src="@drawable/service3" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Custom (Temperature-controlled Packaging)"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bulk Shipping"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="12dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:gravity="center"
-                            android:text="Our packaging is designed to preserve freshness and safety during long shipments."
-                            android:textColor="#555555"
-                            android:textSize="13sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We offer bulk shipping of your parcel to your loved ones living far from your place."
+                android:textSize="13sp"
+                android:textColor="#555555"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
 
-                    </LinearLayout>
+        <!-- Service 4 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:elevation="4dp">
 
-                </TableRow>
+            <ImageView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:src="@drawable/service4"
+                android:layout_marginBottom="5dp" />
 
-                <!-- Second Row with two services -->
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Real-Time Tracking"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
 
-                    <!-- Service 3 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="220dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:gravity="center"
-                        android:background="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Track your shipment from the sender to the recipient, 24/7."
+                android:textColor="#555555"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </TableRow>
 
-                        <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
-                            android:src="@drawable/service3" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bulk Shipping"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:gravity="center" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="We offer bulk shipping of your parcel to your loved once living far from your place."
-                            android:textSize="13sp"
-                            android:textColor="#555555"
-                            android:gravity="center"
-                            android:layout_marginTop="8dp" />
-
-                    </LinearLayout>
-
-                    <!-- Service 4 -->
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="220dp"
-                        android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
-                            android:src="@drawable/service4"
-                            android:layout_marginBottom="5dp"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="Real-Time Tracking"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:gravity="center"
-                            android:text="Track your shipment from the sender to the recipient, 24/7."
-                            android:textColor="#555555"
-                            android:textSize="13sp" />
-
-                    </LinearLayout>
-
-                </TableRow>
-
-            </TableLayout>
+</TableLayout>
             <!-- Shipping Tools -->
             <TextView
                 android:layout_width="wrap_content"
