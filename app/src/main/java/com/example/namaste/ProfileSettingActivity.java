@@ -1,101 +1,69 @@
-package com.example.namaste; // Change to your actual package name
+package com.example.namaste;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.view.View;
 import android.widget.Switch;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileSettingActivity extends AppCompatActivity {
 
-    // Declare UI components
-    private EditText firstNameEditText;
-    private EditText lastNameEditText;
-    private Button addAddressButton;
-    private Button editVisaButton;
-    private Button editMastercardButton;
-    private Button editPayPalButton;
-    private Button viewOrderDetailsButton1;
-    private Button viewOrderDetailsButton2;
-    private Button referralDetailsButton;
-    private Switch promotionalSwitch;
-    private Switch transactionalSwitch;
-    private CheckBox allowTrackingCheckBox;
-    private CheckBox showProfileCheckBox;
-    private ImageView backButton;
+    private Switch pushNotificationSwitch;
+    private Spinner languageSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_setting); // Ensure your XML file is named activity_profile_settings.xml
+        setContentView(R.layout.activity_profile_setting);
 
-        // Initialize UI components
-        firstNameEditText = findViewById(R.id.first_name_edit_text);
-        lastNameEditText = findViewById(R.id.last_name_edit_text);
-        addAddressButton = findViewById(R.id.add_new_address_button);
-        editVisaButton = findViewById(R.id.edit_visa_button);
-        editMastercardButton = findViewById(R.id.edit_mastercard_button);
-        editPayPalButton = findViewById(R.id.edit_paypal_button);
-        viewOrderDetailsButton1 = findViewById(R.id.view_order_details_button_1);
-        viewOrderDetailsButton2 = findViewById(R.id.view_order_details_button_2);
-        referralDetailsButton = findViewById(R.id.referral_details_button);
-        promotionalSwitch = findViewById(R.id.promotional_switch);
-        transactionalSwitch = findViewById(R.id.transactional_switch);
-        allowTrackingCheckBox = findViewById(R.id.allow_tracking_checkbox);
-        showProfileCheckBox = findViewById(R.id.show_profile_checkbox);
-        backButton = findViewById(R.id.back_button);
+        // Initialize UI elements
+        pushNotificationSwitch = findViewById(R.id.pushNotificationSwitch);
+        languageSpinner = findViewById(R.id.languageSpinner);
 
-        // Set onClick listeners
-        addAddressButton.setOnClickListener(v -> {
-            // Logic to add a new address
+        // Set up the language spinner with options
+        setupLanguageSpinner();
+
+        // Set the default state of the switch based on the current preference
+        pushNotificationSwitch.setChecked(true);  // Assuming notifications are enabled by default
+
+        // Set the listener for the push notification toggle
+        pushNotificationSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Enable push notifications
+                Toast.makeText(ProfileSettingActivity.this, "Push Notifications Enabled", Toast.LENGTH_SHORT).show();
+            } else {
+                // Disable push notifications
+                Toast.makeText(ProfileSettingActivity.this, "Push Notifications Disabled", Toast.LENGTH_SHORT).show();
+            }
         });
+    }
 
-        editVisaButton.setOnClickListener(v -> {
-            // Logic to edit Visa card details
-        });
+    private void setupLanguageSpinner() {
+        // Create an array of languages
+        String[] languages = {"English", "Hindi", "Spanish", "French", "German"};
 
-        editMastercardButton.setOnClickListener(v -> {
-            // Logic to edit Mastercard details
-        });
+        // Create an ArrayAdapter with the language options
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, languages);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        editPayPalButton.setOnClickListener(v -> {
-            // Logic to edit PayPal details
-        });
+        // Set the adapter to the spinner
+        languageSpinner.setAdapter(adapter);
 
-        viewOrderDetailsButton1.setOnClickListener(v -> {
-            // Logic to view order details for Order #1234
-        });
+        // Optionally, set a listener for language selection
+        languageSpinner.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String selectedLanguage = parentView.getItemAtPosition(position).toString();
+                Toast.makeText(ProfileSettingActivity.this, "Selected Language: " + selectedLanguage, Toast.LENGTH_SHORT).show();
+            }
 
-        viewOrderDetailsButton2.setOnClickListener(v -> {
-            // Logic to view order details for Order #5678
-        });
-
-        referralDetailsButton.setOnClickListener(v -> {
-            // Logic to view referral details
-        });
-
-        promotionalSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Logic to handle promotional notifications toggle
-        });
-
-        transactionalSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Logic to handle transactional notifications toggle
-        });
-
-        allowTrackingCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Logic to handle allow tracking checkbox
-        });
-
-        showProfileCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            // Logic to handle show profile checkbox
-        });
-
-        backButton.setOnClickListener(v -> {
-            // Logic to handle back button click
-            finish(); // This will close the current activity and return to the previous one
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parentView) {
+                // Do nothing if no language is selected
+            }
         });
     }
 }
