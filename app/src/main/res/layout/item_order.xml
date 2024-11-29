@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- First Product View -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edittext_background"
+        android:padding="16dp">
+
+        <!-- Selected Items -->
+        <TextView
+            android:id="@+id/selectedItems_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Receiver Name -->
+        <TextView
+            android:id="@+id/receiverName_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receiver: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Receiver Phone (Optional, add ID if needed) -->
+        <TextView
+            android:id="@+id/receiverPhone_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receiver Phone: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Receiver Address -->
+        <TextView
+            android:id="@+id/receiverAddress_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Receiver Address: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Sender Name -->
+        <TextView
+            android:id="@+id/senderName_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sender: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Sender Phone (Optional, add ID if needed) -->
+        <TextView
+            android:id="@+id/senderPhone_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sender Phone: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Sender Address -->
+        <TextView
+            android:id="@+id/senderAddress_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sender Address: "
+            android:textSize="14sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <!-- Separator Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="#B0B0B0" />
+
+</LinearLayout>

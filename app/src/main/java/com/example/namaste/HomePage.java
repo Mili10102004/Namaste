@@ -15,6 +15,7 @@ public class HomePage extends AppCompatActivity {
     private ImageButton helpButton;
     private ImageButton notificationButton;  // Add the notification button variable
     private Button startSendingPackageButton;
+    private ImageButton shipmentHistoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class HomePage extends AppCompatActivity {
         helpButton = findViewById(R.id.help);
         notificationButton = findViewById(R.id.notification);
         startSendingPackageButton = findViewById(R.id.startSendingPackageButton);// Initialize the notification button
+        shipmentHistoryButton = findViewById(R.id.shipment_history);
 
         // Set up button click listeners
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +55,16 @@ public class HomePage extends AppCompatActivity {
             public void onClick(View v) {
                 // Redirect to Profile Activity
                 Intent intent = new Intent(HomePage.this, ProfileSettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Navigate to Order History screen when ImageButton is clicked
+        shipmentHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the OrderHistory activity when the ImageButton is clicked
+                Intent intent = new Intent(HomePage.this, OrderHistory.class);
                 startActivity(intent);
             }
         });
