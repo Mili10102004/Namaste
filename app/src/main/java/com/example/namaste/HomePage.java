@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +18,9 @@ public class HomePage extends AppCompatActivity {
     private ImageButton notificationButton;  // Add the notification button variable
     private Button startSendingPackageButton;
     private ImageButton shipmentHistoryButton;
+    private TextView servicesView;
+    private ImageButton aboutUsButton;
+    private ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,9 @@ public class HomePage extends AppCompatActivity {
         notificationButton = findViewById(R.id.notification);
         startSendingPackageButton = findViewById(R.id.startSendingPackageButton);// Initialize the notification button
         shipmentHistoryButton = findViewById(R.id.shipment_history);
+        scrollView = findViewById(R.id.scrollView);
+        servicesView = findViewById(R.id.our_services_title);
+        aboutUsButton = findViewById(R.id.about_us);
 
         // Set up button click listeners
         checkPricesButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +93,14 @@ public class HomePage extends AppCompatActivity {
                 // Redirect to NotificationPage Activity
                 Intent intent = new Intent(HomePage.this, NotificationPage.class);
                 startActivity(intent);
+            }
+        });
+
+        aboutUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Scroll the ScrollView to "Our Services" TextView
+                scrollView.smoothScrollTo(0, servicesView.getTop());
             }
         });
     }
