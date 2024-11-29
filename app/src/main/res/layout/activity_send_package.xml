@@ -1,165 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F2F2F2">
-
-    <!-- Heading -->
-    <TextView
-        android:id="@+id/heading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send Package"
-        android:textSize="24sp"
-        android:textColor="#333"
-        android:paddingBottom="16dp"
-        android:textStyle="bold" />
-
-    <!-- Pickup Address -->
-    <TextView
-        android:id="@+id/pickup_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pickup Address"
-        android:textColor="#333"
-        android:paddingBottom="8dp" />
-
-    <EditText
-        android:id="@+id/pickup_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search pickup location"
-        android:background="@color/cardview_light_background"
-        android:padding="16dp"
-    android:minHeight="48dp"
-    android:textColor="#333"
-    android:textSize="14sp" />
-
-
-    <!-- Delivery Address -->
-    <TextView
-        android:id="@+id/delivery_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delivery Address"
-        android:textColor="#333"
-        android:paddingBottom="8dp"
-        android:paddingTop="16dp" />
-
-    <EditText
-        android:id="@+id/delivery_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search delivery location"
-        android:background="@color/cardview_light_background"
-        android:padding="16dp"
-    android:minHeight="48dp"
-    android:textColor="#333"
-    android:textSize="14sp" />
-
-
-    <!-- Package Details -->
-    <TextView
-        android:id="@+id/package_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Package Details"
-        android:textColor="#333"
-        android:paddingBottom="8dp"
-        android:paddingTop="16dp" />
-
-    <EditText
-        android:id="@+id/package_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="e.g. small, medium, large"
-        android:background="@color/cardview_light_background"
-        android:padding="16dp"
-    android:minHeight="48dp"
-    android:textColor="#333"
-    android:textSize="14sp" />
-
-
-    <!-- Special Instructions -->
-    <CheckBox
-        android:id="@+id/special_instructions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Any instructions? (e.g. Don’t ring the doorbell)"
-        android:textColor="#333"
-        android:textSize="14sp"
-        android:paddingTop="16dp" />
-
-    <!-- Payment Details -->
-    <TextView
-        android:id="@+id/payment_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Payment Details"
-        android:textColor="#333"
-        android:paddingBottom="8dp"
-        android:paddingTop="16dp" />
-
-    <TextView
-        android:id="@+id/delivery_charges"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delivery Charges"
-        android:textColor="#333"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/amount_payable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Amount Payable ₹120"
-        android:textColor="#333"
-        android:textSize="14sp" />
-
-    <!-- Buttons -->
-
-    <TextView
-        android:id="@+id/terms_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="16dp"
-        android:layout_marginTop="80dp"
-        android:text="By confirming, I accept that my package does not contain illegal materials. Details about your package will be shared as per terms and conditions."
-        android:textColor="#666"
-        android:textSize="12sp" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="24dp">
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:clipToPadding="false">
 
-        <Button
-            android:id="@+id/schedule_button"
-            android:layout_width="0dp"
+        <!-- Heading -->
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#FF5722"
-            android:padding="12dp"
-            android:text="Schedule"
-            android:textColor="#fff"
-            android:textSize="14sp" />
+            android:text="Send Package"
+            android:textSize="28sp"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:paddingBottom="16dp"
+            android:gravity="center" />
 
-        <Button
-            android:id="@+id/pickup_now_button"
-            android:layout_width="0dp"
+        <!-- Sender's Details -->
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#4CAF50"
+            android:text="Sender's Detail"
+            android:textColor="#333"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/sender_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sender's Name"
+            android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
-            android:text="Pick up now"
-            android:textColor="#fff"
-            android:textSize="14sp" />
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <!-- Sender's Address -->
+        <EditText
+            android:id="@+id/sender_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <EditText
+            android:id="@+id/sender_landmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Landmark"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <!-- Phone Number -->
+        <EditText
+            android:id="@+id/sender_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <!-- Receiver's Details -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receiver's Detail"
+            android:textColor="#333"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/receiver_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Receiver Name"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <EditText
+            android:id="@+id/receiver_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <EditText
+            android:id="@+id/receiver_landmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Landmark"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <EditText
+            android:id="@+id/receiver_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:background="@drawable/custom_edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:textColor="#333"
+            android:textColorHint="#888"
+            android:fontFamily="sans-serif-light"/>
+
+        <!-- Special Instructions -->
+        <CheckBox
+            android:id="@+id/special_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Any instructions? (e.g. Don’t ring the doorbell)"
+            android:textColor="#333"
+            android:textSize="14sp"
+            android:paddingTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            />
+
+        <!-- Selected Items Text -->
+        <TextView
+            android:id="@+id/selected_items_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No items selected."
+            android:textColor="#333"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Terms and Conditions -->
+        <TextView
+            android:id="@+id/terms_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="By confirming, I accept that my package does not contain illegal materials. Details about your package will be shared as per terms and conditions."
+            android:textColor="#666"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Schedule Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="24dp">
+
+            <Button
+                android:id="@+id/schedule_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF5722"
+                android:padding="16dp"
+                android:text="Schedule"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
     </LinearLayout>
+</ScrollView>
 
-    <!-- Footer text for terms and conditions -->
-
-</LinearLayout>

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class NewOrderActivity extends AppCompatActivity {
     private Button bulkOrderButton;
+    private Button individualOrderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,21 @@ public class NewOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_order);
 
         bulkOrderButton = findViewById(R.id.bulkOrderButton);
+        individualOrderButton = findViewById(R.id.individualOrderButton);
 
         // Creating the layout for two sections
         LinearLayout layout = findViewById(R.id.mainLayout);
         layout.setOrientation(LinearLayout.VERTICAL);
 
+
+        individualOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Redirect to Shipping Calculator Activity
+                Intent intent = new Intent(NewOrderActivity.this, IndividualPage.class);
+                startActivity(intent);
+            }
+        });
 
         bulkOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override

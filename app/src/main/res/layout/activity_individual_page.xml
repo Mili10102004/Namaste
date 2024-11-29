@@ -17,7 +17,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bulk Shipping Benefits"
+            android:text="Individual Shipping"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#FF5722"
@@ -29,7 +29,7 @@
             android:id="@+id/subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save costs by shipping in bulk. Get discounts on large shipments and enjoy seamless shipping management."
+            android:text="Ship a single package with ease. Enjoy reliable delivery services tailored for individual shipments."
             android:textSize="16sp"
             android:gravity="center"
             android:lineSpacingExtra="4dp"
@@ -114,8 +114,7 @@
             android:layout_height="wrap_content"
             android:rowCount="3"
             android:columnCount="2"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginTop="8dp">
 
             <CheckBox
                 android:id="@+id/checkBooks"
@@ -152,145 +151,58 @@
                 android:textColor="@color/black"/>
         </GridLayout>
 
-        <!-- Pickup City -->
-
-        <!-- Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sender's Detail"
+            android:text="Select Temperature Control Item"
             android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-
-        <EditText
-            android:id="@+id/pickup_city"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold" />
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sender's Name"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
+            android:rowCount="3"
+            android:columnCount="2"
+            android:layout_marginTop="8dp">
 
-        <!-- Address of Pick Up -->
-        <EditText
-            android:id="@+id/address_pickup1"
+            <CheckBox
+                android:id="@+id/checkFood"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FF6E00"
+                android:text="Food items"
+                android:textColor="@color/black"/>
+
+            <CheckBox
+                android:id="@+id/checkMedicine"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:buttonTint="#FF6E00"
+                android:text="Medicine"
+                android:textColor="@color/black"/>
+        </GridLayout>
+
+
+        <!-- Footer Buttons -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Address"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-        <EditText
-            android:id="@+id/address_pickup2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Landmark"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-        <!-- Destination City -->
-
-        <!-- Address of Destination -->
-        <EditText
-            android:id="@+id/destination_city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/custom_edittext_background"
-            android:hint="Phone Number"
-            android:inputType="number"
-            android:padding="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reciever Detail"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-
-        <EditText
-            android:id="@+id/receiver_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Receiver Name"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-        <!-- Address of Pick Up -->
-        <EditText
-            android:id="@+id/receiver_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="8dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-        <EditText
-            android:id="@+id/receiver_landmark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Landmark"
-            android:background="@drawable/custom_edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-        <!-- Destination City -->
-
-        <!-- Address of Destination -->
-        <EditText
-            android:id="@+id/receiver_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/custom_edittext_background"
-            android:hint="Phone Number"
-            android:inputType="number"
-            android:padding="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"/>
-
-
-
-
-
-        <!-- Confirm & Ship Button -->
-        <Button
-            android:id="@+id/confirm_ship"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirm Booking &amp; Ship"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#4CAF50"
-            android:layout_marginBottom="16dp" />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:backgroundTint="#FF6E00"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

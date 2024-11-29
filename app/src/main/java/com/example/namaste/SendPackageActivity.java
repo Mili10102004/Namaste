@@ -14,83 +14,121 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SendPackageActivity extends AppCompatActivity {
 
-    private EditText pickupAddress, deliveryAddress, packageDetails;
+    private EditText senderName, senderAddress, senderLandmark, senderPhone;
+    private EditText receiverName, receiverAddress, receiverLandmark, receiverPhone;
     private CheckBox specialInstructions;
-    private TextView deliveryCharges, amountPayable;
-    private Button scheduleButton, pickUpNowButton;
-    private FirebaseDatabase database;
+    private TextView selectedItemsText, termsText;
+    private Button scheduleButton;
+
     private DatabaseReference shipmentRef;
+    private String selectedItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_package);
 
-        // Initialize Firebase
-        database = FirebaseDatabase.getInstance();
-        shipmentRef = database.getReference("shipments");
+        // Initialize Firebase Database reference
+        shipmentRef = FirebaseDatabase.getInstance().getReference("shipments");
 
-        // Bind views
-        pickupAddress = findViewById(R.id.pickup_address);
-        deliveryAddress = findViewById(R.id.delivery_address);
-        packageDetails = findViewById(R.id.package_details);
+        // Bind views from XML layout
+        senderName = findViewById(R.id.sender_name);
+        senderAddress = findViewById(R.id.sender_address);
+        senderLandmark = findViewById(R.id.sender_landmark);
+        senderPhone = findViewById(R.id.sender_number);
+
+        receiverName = findViewById(R.id.receiver_name);
+        receiverAddress = findViewById(R.id.receiver_address);
+        receiverLandmark = findViewById(R.id.receiver_landmark);
+        receiverPhone = findViewById(R.id.receiver_phone);
+
         specialInstructions = findViewById(R.id.special_instructions);
-        deliveryCharges = findViewById(R.id.delivery_charges);
-        amountPayable = findViewById(R.id.amount_payable);
+        selectedItemsText = findViewById(R.id.selected_items_text);
+        termsText = findViewById(R.id.terms_text);
         scheduleButton = findViewById(R.id.schedule_button);
-        pickUpNowButton = findViewById(R.id.pickup_now_button);
 
-        // Schedule button click listener
+        // Retrieve selected items from Intent extras
+        selectedItems = getIntent().getStringExtra("selectedItems");
+        if (selectedItems != null && !selectedItems.isEmpty()) {
+            selectedItemsText.setText(selectedItems);
+        } else {
+            selectedItemsText.setText("No items selected.");
+        }
+
+        // Set up the Schedule button's click listener
         scheduleButton.setOnClickListener(v -> schedulePackage());
-
-        // Pick up now button click listener
-        pickUpNowButton.setOnClickListener(v -> pickUpPackage());
     }
 
     private void schedulePackage() {
-        // Get the values from the input fields
-        String pickup = pickupAddress.getText().toString().trim();
-        String delivery = deliveryAddress.getText().toString().trim();
-        String packageSize = packageDetails.getText().toString().trim();
-        String specialInstruction = specialInstructions.isChecked() ? "Yes" : "No";
-
-        if (pickup.isEmpty() || delivery.isEmpty() || packageSize.isEmpty()) {
-            Toast.makeText(this, "Please fill in all required fields.", Toast.LENGTH_SHORT).show();
-        } else {
-            // Save package data to Firebase
+        // Validate input fields
+        if (validateInputFields()) {
+            // Generate a unique ID for the shipment
             String shipmentId = shipmentRef.push().getKey();
-            Shipment shipment = new Shipment(pickup, delivery, packageSize, specialInstruction);
-            shipmentRef.child(shipmentId).setValue(shipment);
+            if (shipmentId != null) {
+                // Create a Shipment object with input data
+                Shipment shipment = new Shipment(
+                        senderName.getText().toString().trim(),
+                        senderAddress.getText().toString().trim() + " " + senderLandmark.getText().toString().trim(),
+                        senderPhone.getText().toString().trim(),
+                        receiverName.getText().toString().trim(),
+                        receiverAddress.getText().toString().trim() + " " + receiverLandmark.getText().toString().trim(),
+                        receiverPhone.getText().toString().trim(),
+                        specialInstructions.isChecked() ? "Yes" : "No",
+                        selectedItems
+                );
 
-            // Show success message
-            Toast.makeText(this, "Package scheduled successfully!", Toast.LENGTH_SHORT).show();
+                // Save the shipment object to Firebase
+                shipmentRef.child(shipmentId).setValue(shipment).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this, "Package scheduled successfully!", Toast.LENGTH_SHORT).show();
+                        finish(); // Close the activity after successful scheduling
+                    } else {
+                        Toast.makeText(this, "Failed to schedule package. Please try again.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            } else {
+                Toast.makeText(this, "Error generating shipment ID. Please try again.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    private void pickUpPackage() {
-        String pickup = pickupAddress.getText().toString().trim();
-        String delivery = deliveryAddress.getText().toString().trim();
+    private boolean validateInputFields() {
+        // Check if any required fields are empty
+        if (senderName.getText().toString().trim().isEmpty() ||
+                senderAddress.getText().toString().trim().isEmpty() ||
+                senderPhone.getText().toString().trim().isEmpty() ||
+                receiverName.getText().toString().trim().isEmpty() ||
+                receiverAddress.getText().toString().trim().isEmpty() ||
+                receiverPhone.getText().toString().trim().isEmpty()) {
 
-        if (pickup.isEmpty() || delivery.isEmpty()) {
-            Toast.makeText(this, "Please fill in both pickup and delivery addresses", Toast.LENGTH_SHORT).show();
-        } else {
-            // Simulate pickup now action
-            Toast.makeText(this, "Pickup has been requested.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please fill in all required fields.", Toast.LENGTH_SHORT).show();
+            return false;
         }
+        return true;
     }
 
-    // Shipment class to model package data
+    // Inner Shipment class to model package data
     public static class Shipment {
-        public String pickupAddress;
-        public String deliveryAddress;
-        public String packageSize;
+        public String senderName;
+        public String senderAddress;
+        public String senderPhone;
+        public String receiverName;
+        public String receiverAddress;
+        public String receiverPhone;
         public String specialInstructions;
+        public String selectedItems;
 
-        public Shipment(String pickupAddress, String deliveryAddress, String packageSize, String specialInstructions) {
-            this.pickupAddress = pickupAddress;
-            this.deliveryAddress = deliveryAddress;
-            this.packageSize = packageSize;
+        public Shipment(String senderName, String senderAddress, String senderPhone,
+                        String receiverName, String receiverAddress, String receiverPhone,
+                        String specialInstructions, String selectedItems) {
+            this.senderName = senderName;
+            this.senderAddress = senderAddress;
+            this.senderPhone = senderPhone;
+            this.receiverName = receiverName;
+            this.receiverAddress = receiverAddress;
+            this.receiverPhone = receiverPhone;
             this.specialInstructions = specialInstructions;
+            this.selectedItems = selectedItems;
         }
     }
 }

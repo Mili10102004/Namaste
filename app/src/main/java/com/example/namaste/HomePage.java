@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HomePage extends AppCompatActivity {
 
     private Button checkPricesButton;
-    private Button checkTimeButton;
     private ImageButton profileButton;
     private ImageButton helpButton;
     private ImageButton notificationButton;  // Add the notification button variable
@@ -24,7 +23,6 @@ public class HomePage extends AppCompatActivity {
 
         // Initialize the views
         checkPricesButton = findViewById(R.id.checkPricesButton);
-        checkTimeButton = findViewById(R.id.checkTimeButton);
         profileButton = findViewById(R.id.profile);
         helpButton = findViewById(R.id.help);
         notificationButton = findViewById(R.id.notification);
@@ -40,14 +38,6 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        checkTimeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Redirect to Delivery Time Estimator Activity
-                Intent intent = new Intent(HomePage.this, DeliveryTimeEstimationActivity.class);
-                startActivity(intent);
-            }
-        });
 
         startSendingPackageButton.setOnClickListener(new View.OnClickListener() {
             @Override

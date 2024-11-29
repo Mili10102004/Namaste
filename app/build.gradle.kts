@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation ("androidx.cardview:cardview:1.0.0")
 
     // Firebase Libraries - Using Firebase BOM to manage versions
     implementation(platform("com.google.firebase:firebase-bom:32.0.0")) // Firebase BOM for version management
@@ -61,4 +62,6 @@ dependencies {
     // Additional Dependencies (if required)
     implementation("com.squareup.okhttp3:okhttp:4.11.0") // For network requests
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0") // Kotlin standard library
+
+
 }
