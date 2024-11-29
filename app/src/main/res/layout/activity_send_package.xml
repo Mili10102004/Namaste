@@ -74,12 +74,14 @@
             android:fontFamily="sans-serif-light"/>
 
         <!-- Phone Number -->
+
         <EditText
             android:id="@+id/sender_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="Sender Phone Number"
             android:inputType="phone"
+            android:importantForAutofill="no"
             android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="16dp"
@@ -137,8 +139,9 @@
             android:id="@+id/receiver_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="Receiver Phone Number"
             android:inputType="phone"
+            android:importantForAutofill="no"
             android:background="@drawable/custom_edittext_background"
             android:padding="12dp"
             android:layout_marginBottom="16dp"

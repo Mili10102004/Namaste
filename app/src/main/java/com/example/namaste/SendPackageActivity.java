@@ -78,6 +78,12 @@ public class SendPackageActivity extends AppCompatActivity {
             return false;
         }
 
+        if (!senderPhone.getText().toString().matches("\\d{10}") ||
+            !receiverPhone.getText().toString().matches("\\d{10}")) {
+            Toast.makeText(this, "Enter a valid 10-digit phone number.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         // Create a Shipment object with input data
         Shipment shipment = new Shipment(
                 senderName.getText().toString().trim(),
