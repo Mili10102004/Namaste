@@ -110,110 +110,194 @@
                 android:text="How Does It Work?"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:paddingBottom="8dp"
+                android:paddingBottom="4dp"
                 android:layout_marginTop="12dp"
                 android:textColor="#000000" />
 
-            <TableLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:stretchColumns="1">
+                android:layout_marginTop="5dp"
+                android:scrollbars="none"
+                android:paddingTop="4dp" 
+                android:paddingBottom="4dp">
 
-                <TableRow>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <!-- Card 1: Sign Up -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp" 
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="4dp">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/sign_up" />
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1. Sign Up"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:gravity="center" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:background="@color/white"
+                            android:padding="16dp"
+                            android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                            <ImageView
+                                android:layout_width="98dp"
+                                android:layout_height="58dp"
+                                android:background="@color/white"
+                                android:src="@drawable/sign_up" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1. Sign Up"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Arrow between Card 1 and Card 2 -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/arrow"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <!-- Card 2: Send Items -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp" 
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/send_items" />
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2. Send Items"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:gravity="center" />
-                    </LinearLayout>
-                </TableRow>
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="@color/white"
+                            android:gravity="center">
 
-                <TableRow>
+                            <ImageView
+                                android:layout_width="98dp"
+                                android:layout_height="58dp"
+                                android:background="@color/white"
+                                android:src="@drawable/send_items" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2. Send Items"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Arrow between Card 2 and Card 3 -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/arrow"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <!-- Card 3: Packaging -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/ship" />
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3. Packaging"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:gravity="center" />
-                    </LinearLayout>
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="@color/white"
+                            android:gravity="center">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                            <ImageView
+                                android:layout_width="98dp"
+                                android:layout_height="58dp"
+                                android:background="@color/white"
+                                android:src="@drawable/ship" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3. Packaging"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Arrow between Card 3 and Card 4 -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/arrow"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <!-- Card 4: Delivery -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:padding="8dp"
-                        android:gravity="center">
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
 
-                        <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@drawable/delivery" />
-
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4. Delivery"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
-                            android:gravity="center" />
-                    </LinearLayout>
-                </TableRow>
-            </TableLayout>
+                            android:orientation="vertical"
+                            android:padding="16dp"
+                            android:background="@color/white"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="98dp"
+                                android:layout_height="58dp"
+                                android:background="@color/white"
+                                android:src="@drawable/delivery" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4. Delivery"
+                                android:textSize="14sp"
+                                android:textColor="#000000"
+                                android:gravity="center" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+
 
             <!-- Our Services Section -->
             <!-- Our Services Section -->
@@ -253,6 +337,7 @@
                         <ImageView
                             android:layout_width="58dp"
                             android:layout_height="58dp"
+                            android:background="@color/white"
                             android:src="@drawable/service1" />
 
                         <TextView
@@ -287,6 +372,7 @@
                         <ImageView
                             android:layout_width="58dp"
                             android:layout_height="58dp"
+                            android:background="@color/white"
                             android:src="@drawable/service2" />
 
                         <TextView
