@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation ("androidx.cardview:cardview:1.0.0")
+    implementation("com.razorpay:checkout:1.6.21")
 
     // Firebase Libraries - Using Firebase BOM to manage versions
     implementation(platform("com.google.firebase:firebase-bom:32.0.0")) // Firebase BOM for version management
