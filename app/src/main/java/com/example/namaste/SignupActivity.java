@@ -3,6 +3,7 @@ package com.example.namaste;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -59,8 +63,11 @@ public class SignupActivity extends AppCompatActivity {
             } else if (!password.equals(confirmPassword)) {
                 signupConfirmPassword.setError("Passwords do not match");
             } else {
+                // Hash the password
+                String hashedPassword = hashPassword(password);
+
                 // Create a User object
-                User newUser = new User(name, email, password);
+                User newUser = new User(name, email, hashedPassword);
 
                 // Store the user data in Firebase Realtime Database under the 'users' node
                 String userId = usersRef.push().getKey();  // Generate unique ID for the user
@@ -82,17 +89,30 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Footer text click listener (for login page navigation)
+        footerText.setOnClickListener(v -> {
+            Intent intent = new Intent(SignupActivity.this, SplashActivity.class);
+            startActivity(intent);
+        });
     }
 
+    // Method to hash the password using SHA-256
+    private String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes());
+            return Base64.encodeToString(hashBytes, Base64.DEFAULT);  // Encode to Base64 to store it as a string
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    // Method to navigate directly to Home Page (without filling out the form)
     public void skipToHome(View view) {
         Intent intent = new Intent(SignupActivity.this, HomePage.class);
         startActivity(intent);
         finish();  // Close the sign-up activity
-    }
-
-    // Go to Login Activity (called by the footer text click)
-    public void goToLogin(View view) {
-        Intent intent = new Intent(SignupActivity.this, SplashActivity.class);
-        startActivity(intent);
-    }
+    }    
 }

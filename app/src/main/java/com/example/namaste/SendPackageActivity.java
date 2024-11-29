@@ -1,5 +1,7 @@
 package com.example.namaste;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,7 +19,7 @@ public class SendPackageActivity extends AppCompatActivity {
     private EditText senderName, senderAddress, senderLandmark, senderPhone;
     private EditText receiverName, receiverAddress, receiverLandmark, receiverPhone;
     private CheckBox specialInstructions;
-    private TextView selectedItemsText, termsText;
+    private TextView selectedItemsText;
     private Button scheduleButton;
 
     private DatabaseReference shipmentRef;
@@ -28,8 +30,9 @@ public class SendPackageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_package);
 
-        // Initialize Firebase Database reference
-        shipmentRef = FirebaseDatabase.getInstance().getReference("shipments");
+        // Configure Firebase with the provided database URL
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://namaste-e16fa-default-rtdb.firebaseio.com/");
+        shipmentRef = database.getReference("shipments");
 
         // Bind views from XML layout
         senderName = findViewById(R.id.sender_name);
@@ -44,52 +47,66 @@ public class SendPackageActivity extends AppCompatActivity {
 
         specialInstructions = findViewById(R.id.special_instructions);
         selectedItemsText = findViewById(R.id.selected_items_text);
-        termsText = findViewById(R.id.terms_text);
         scheduleButton = findViewById(R.id.schedule_button);
 
         // Retrieve selected items from Intent extras
         selectedItems = getIntent().getStringExtra("selectedItems");
-        if (selectedItems != null && !selectedItems.isEmpty()) {
-            selectedItemsText.setText(selectedItems);
-        } else {
-            selectedItemsText.setText("No items selected.");
+        if (selectedItems == null || selectedItems.isEmpty()) {
+            selectedItems = "No items selected.";
         }
+        selectedItemsText.setText(selectedItems);
 
         // Set up the Schedule button's click listener
-        scheduleButton.setOnClickListener(v -> schedulePackage());
+        scheduleButton.setOnClickListener(v -> {
+            if (schedulePackage()) { // Schedule package in Firebase
+                Intent intent = new Intent(SendPackageActivity.this, PaymentPage.class);
+                startActivity(intent); // Redirect to PaymentPage
+            }
+        });
     }
 
-    private void schedulePackage() {
+    private boolean schedulePackage() {
         // Validate input fields
-        if (validateInputFields()) {
-            // Generate a unique ID for the shipment
-            String shipmentId = shipmentRef.push().getKey();
-            if (shipmentId != null) {
-                // Create a Shipment object with input data
-                Shipment shipment = new Shipment(
-                        senderName.getText().toString().trim(),
-                        senderAddress.getText().toString().trim() + " " + senderLandmark.getText().toString().trim(),
-                        senderPhone.getText().toString().trim(),
-                        receiverName.getText().toString().trim(),
-                        receiverAddress.getText().toString().trim() + " " + receiverLandmark.getText().toString().trim(),
-                        receiverPhone.getText().toString().trim(),
-                        specialInstructions.isChecked() ? "Yes" : "No",
-                        selectedItems
-                );
-
-                // Save the shipment object to Firebase
-                shipmentRef.child(shipmentId).setValue(shipment).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(this, "Package scheduled successfully!", Toast.LENGTH_SHORT).show();
-                        finish(); // Close the activity after successful scheduling
-                    } else {
-                        Toast.makeText(this, "Failed to schedule package. Please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            } else {
-                Toast.makeText(this, "Error generating shipment ID. Please try again.", Toast.LENGTH_SHORT).show();
-            }
+        if (!validateInputFields()) {
+            return false;
         }
+
+        // Generate a unique ID for the shipment
+        String shipmentId = shipmentRef.push().getKey();
+        if (shipmentId == null) {
+            Toast.makeText(this, "Error generating shipment ID. Please try again.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        // Create a Shipment object with input data
+        Shipment shipment = new Shipment(
+                senderName.getText().toString().trim(),
+                senderAddress.getText().toString().trim() + " " + senderLandmark.getText().toString().trim(),
+                senderPhone.getText().toString().trim(),
+                receiverName.getText().toString().trim(),
+                receiverAddress.getText().toString().trim() + " " + receiverLandmark.getText().toString().trim(),
+                receiverPhone.getText().toString().trim(),
+                specialInstructions.isChecked() ? "Yes" : "No",
+                selectedItems
+        );
+
+        // Show a loading dialog
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Scheduling package...");
+        progressDialog.show();
+
+        // Save the shipment object to Firebase
+        shipmentRef.child(shipmentId).setValue(shipment).addOnCompleteListener(task -> {
+            progressDialog.dismiss();
+            if (task.isSuccessful()) {
+                Toast.makeText(this, "Package scheduled successfully!", Toast.LENGTH_SHORT).show();
+                finish(); // Close the activity after successful scheduling
+            } else {
+                Toast.makeText(this, "Failed to schedule package. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return true;
     }
 
     private boolean validateInputFields() {
@@ -104,6 +121,14 @@ public class SendPackageActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all required fields.", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        // Validate phone numbers
+        if (!senderPhone.getText().toString().matches("\\d{10}") ||
+                !receiverPhone.getText().toString().matches("\\d{10}")) {
+            Toast.makeText(this, "Enter a valid 10-digit phone number.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 
@@ -117,6 +142,10 @@ public class SendPackageActivity extends AppCompatActivity {
         public String receiverPhone;
         public String specialInstructions;
         public String selectedItems;
+
+        // Default constructor required for Firebase
+        public Shipment() {
+        }
 
         public Shipment(String senderName, String senderAddress, String senderPhone,
                         String receiverName, String receiverAddress, String receiverPhone,

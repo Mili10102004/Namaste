@@ -17,12 +17,10 @@
         <activity
             android:name=".OrderConfirmation"
             android:exported="false" />
-        <activity
-            android:name=".PaymentPage"
-            android:exported="false" />
+
         <activity
             android:name=".SplashActivity"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

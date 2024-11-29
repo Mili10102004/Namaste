@@ -25,44 +25,47 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
-        <!-- Courier Service Options -->
-        <TextView
+        <!-- Courier Service and Payment Options combined in a single CardView -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select Courier Service"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:layout_marginTop="16dp" />
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#FFFFFF">
 
-        <RadioGroup
-            android:id="@+id/courier_options_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp">
-
-            <!-- Courier Service Cards -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/courier_card_1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="16dp">
+                android:orientation="vertical"
+                android:padding="16dp">
 
-                <LinearLayout
+                <!-- Courier Service Section -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Courier Service"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333"
+                    android:layout_marginTop="16dp" />
+
+                <RadioGroup
+                    android:id="@+id/courier_options_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp">
 
                     <RadioButton
                         android:id="@+id/courier_option_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Blue Dart Express"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:contentDescription="Blue Dart Express courier with 150 INR for 5 days" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -70,30 +73,16 @@
                         android:text="₹150 - 5 Days"
                         android:textColor="#333"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/courier_card_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                        android:layout_marginTop="8dp" />
 
                     <RadioButton
                         android:id="@+id/courier_option_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DTDC Logistics"
-                        android:padding="8dp" />
+                        android:textColor="@color/black"
+                        android:padding="8dp"
+                        android:contentDescription="DTDC Logistics courier with 100 INR for 8 days" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -101,30 +90,16 @@
                         android:text="₹100 - 8 Days"
                         android:textColor="#333"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/courier_card_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                        android:layout_marginTop="8dp" />
 
                     <RadioButton
                         android:id="@+id/courier_option_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="India Post"
-                        android:padding="8dp" />
+                        android:padding="8dp"
+                        android:textColor="@color/black"
+                        android:contentDescription="India Post courier with 200 INR for 7 days" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -132,49 +107,54 @@
                         android:text="₹200 - 7 Days"
                         android:textColor="#333"
                         android:textSize="14sp"
-                        android:layout_marginTop="8dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </RadioGroup>
+                        android:layout_marginTop="8dp" />
+                </RadioGroup>
 
-        <!-- Payment Methods -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Payment Method"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#333"
-            android:layout_marginTop="16dp"/>
+                <!-- Payment Method Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Payment Method"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333"
+                    android:layout_marginTop="16dp" />
 
-        <RadioGroup
-            android:id="@+id/payment_methods_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="8dp">
+                <RadioGroup
+                    android:id="@+id/payment_methods_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp">
 
-            <RadioButton
-                android:id="@+id/payment_method_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Credit/Debit Card"
-                android:padding="8dp" />
+                    <RadioButton
+                        android:id="@+id/payment_method_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credit/Debit Card"
+                        android:textColor="@color/black"
+                        android:padding="8dp"/>
 
-            <RadioButton
-                android:id="@+id/payment_method_upi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="UPI (Google Pay, PhonePe)"
-                android:padding="8dp" />
+                    <RadioButton
+                        android:id="@+id/payment_method_upi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UPI (Google Pay, PhonePe)"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
 
-            <RadioButton
-                android:id="@+id/payment_method_wallet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wallet (Paytm, Razorpay)"
-                android:padding="8dp" />
-        </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/payment_method_wallet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wallet (Paytm, Razorpay)"
+                        android:textColor="@color/black"
+                        android:padding="8dp" />
+                </RadioGroup>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <!-- Confirm Order Button -->
         <Button
@@ -182,11 +162,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Order Confirm"
+            android:layout_marginTop="20dp"
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:background="@drawable/custom_edittext_background"
             android:layout_marginBottom="20dp"
             android:padding="16dp"
-            android:layout_gravity="center_horizontal"/> <!-- Dark gray for better contrast -->
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </ScrollView>
+
